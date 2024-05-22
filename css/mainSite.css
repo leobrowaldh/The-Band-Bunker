@@ -1,0 +1,21 @@
+
+figure img {
+    max-width: 100%;     
+}
+figure {
+    box-shadow: 0 5px 10px 5px black;
+    width: 10rem;
+    border-radius: 15px;
+    transition: transform 1s;
+}
+
+figure:nth-child(even) {
+    width: 15rem;
+}
+
+figcaption {
+    padding: 5px;
+}
+figure:hover {
+    transform: scale(1.1, 1.1);
+}
