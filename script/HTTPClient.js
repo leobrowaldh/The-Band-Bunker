@@ -6,6 +6,12 @@ export async function GetMusicGroups(currentPage) {
     return data;
 }
 
+export async function GetMusicGroupById(groupId) {
+  let url = `https://appmusicwebapinet8.azurewebsites.net/api/csMusicGroups/ReadItem?id=${groupId}&flat=false`;
+  let data = await myFetch(url);
+  return data;
+}
+
 async function myFetch(url) {
     try {
   

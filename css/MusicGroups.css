@@ -78,6 +78,11 @@
     left: 0;
   }
 
+  a {
+    text-decoration: none;
+    color: black;
+  }
+
   /* Media queries: optimize for different screen widths. */
 
 /* First breakpoint: all cells, does not fit into one row: break according to Grouping1 */

@@ -41,15 +41,48 @@ async function renderGroups(_currentPage) {
     console.log(data);
     //populate list
     data.pageItems.forEach(item => {
-        const li = document.createElement("li");
-        const a = document.createElement("a");
-        a.innerText = item.name;
-        a.href = `./GroupDetail.html?id=${item.musicGroupId}`;
-
-        li.appendChild(a);
-        groupList.appendChild(li);
+        addRow(item.name, item.strGenre, item.musicGroupId);
     });
+    _maxNrpages = data.pageCount;
 }
+
+function addRow(groupName, genere, id) {
+    let divRow = document.createElement(`div`);
+    divRow.classList.add("trFluid");
+
+    let divGroup2 = document.createElement(`div`);
+    divGroup2.classList.add("trFluid_Grouping2");
+    divRow.appendChild(divGroup2);
+
+
+    let divGroup1_1 = document.createElement(`div`);
+    divGroup1_1.classList.add("trFluid_Grouping1");
+    let divGroup1_2 = document.createElement(`div`);
+    divGroup1_2.classList.add("trFluid_Grouping1");
+    divGroup2.appendChild(divGroup1_1);
+    divGroup2.appendChild(divGroup1_2);
+
+
+    //<div class="tdFluent"></div>
+    
+    let divFluent1 = document.createElement(`div`);
+    divFluent1.classList.add("tdFluent");
+    const a = document.createElement("a");
+    a.innerText = groupName;
+    a.href = `./GroupDetail.html?id=${id}`;
+    divFluent1.appendChild(a);
+    divGroup1_1.appendChild(divFluent1);
+
+    let divFluent2 = document.createElement(`div`);
+    divFluent2.classList.add("tdFluent");
+    divFluent2.innerHTML = genere;
+
+    divGroup1_2.appendChild(divFluent2);
+
+
+    groupList.appendChild(divRow);
+}
+
 
 //init
 await renderGroups(_currentPage);
