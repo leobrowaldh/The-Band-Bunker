@@ -9,16 +9,22 @@
 </head>
 <body>
     <div class="grid-page">
-        <nav>Music Groups</nav>
+        <nav>The Band Bunker</nav>
         <aside>
             <a href="./website.html" class="ListItem">Home</a>
             <a href="#" class="ListItem">Groups</a>
         </aside>
         <main>
-            <div class="button-container">
+          <div class="button-container">
+            <div class="buttons-and-search">
                 <button id="btnPrev">Previous</button>
                 <button id="btnNext">Next</button>
+                <form id="searchForm">
+                    <input type="text" id="search" name="filter" placeholder="Search...">
+                    <button type="submit">Search</button>
+                </form>
             </div>
+        </div>
             
             <div id="musik-list" >
 
@@ -42,7 +48,7 @@
             </div>
             
         </main>
-        <footer>Copyright ChabalaBabala</footer>
+        <footer>Leo Browaldh</footer>
     </div>
     <script type="module" src="./script/MusikGroups.js"></script>
 </body>

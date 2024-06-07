@@ -1,7 +1,7 @@
 'use strict';
 
-export async function GetMusicGroups(currentPage) {
-    let url = `https://appmusicwebapinet8.azurewebsites.net/api/csMusicGroups/Read?flat=true&pageNr=${currentPage}&pageSize=10`;
+export async function GetMusicGroups(currentPage, searchString) {
+    let url = `https://appmusicwebapinet8.azurewebsites.net/api/csMusicGroups/Read?flat=true&filter=${searchString}&pageNr=${currentPage}&pageSize=10`;
     let data = await myFetch(url);
     return data;
 }

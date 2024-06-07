@@ -1,21 +1,35 @@
-
-figure img {
-    max-width: 100%;     
-}
-figure {
-    box-shadow: 0 5px 10px 5px black;
-    width: 10rem;
-    border-radius: 15px;
-    transition: transform 1s;
+main {
+    overflow: hidden;
 }
 
-figure:nth-child(even) {
-    width: 15rem;
+#background {
+    width: 100%;
+    height: 100%;
 }
 
-figcaption {
-    padding: 5px;
+#acdc {
+    width: 20%; /* Make the overlay image smaller */
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    animation: balanceMove 4s infinite;
+    z-index: 2;
 }
-figure:hover {
-    transform: scale(1.1, 1.1);
+
+@keyframes balanceMove {
+    0% {
+        transform:  rotate(0deg);
+    }
+    25% {
+        transform:  rotate(-5deg);
+    }
+    50% {
+        transform:  rotate(5deg);
+    }
+    75% {
+        transform:  rotate(-5deg);
+    }
+    100% {
+        transform:  rotate(0deg);
+    }
 }

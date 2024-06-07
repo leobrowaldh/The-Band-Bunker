@@ -1,0 +1,26 @@
+
+
+main {
+  display: flex;
+  flex-flow: column wrap;
+  font-size: 30px;
+}
+
+#detail-header {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content:space-around;
+}
+
+#info-container {
+  display: flex;
+  flex-flow: column wrap;
+}
+
+#Name {
+  font-size: 50px;
+}
+
+div{
+  text-align: center;
+}

@@ -70,13 +70,25 @@
 
   main{
     position: relative;
+    padding-top: 60px;
   }
   
   .button-container {
-    position:absolute;
+    position: absolute;
     top: 0;
     left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
   }
+
+  .buttons-and-search {
+    display: flex;
+    gap: 10px; 
+}
+
 
   a {
     text-decoration: none;

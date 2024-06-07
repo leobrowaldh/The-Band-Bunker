@@ -5,6 +5,8 @@ import {GetMusicGroups} from "./HTTPClient.js";
 const groupList = document.querySelector("#musik-groups");
 const btnPrev = document.querySelector("#btnPrev");
 const btnNext = document.querySelector("#btnNext");
+const searchForm = document.querySelector("#searchForm");
+let searchString = document.querySelector("#search").value;
 
 let _currentPage = 0;
 let _maxNrpages = 10; 
@@ -12,24 +14,33 @@ let _maxNrpages = 10;
 //Add event listeners
 btnPrev.addEventListener("click", clickPrev);
 btnNext.addEventListener("click", clickNext);
+searchForm.addEventListener('submit', RenderSearchGroups);
 
 //Declare event handlers
 async function clickPrev (e){
 
     if (_currentPage > 0 ) {
         _currentPage--;
-        await renderGroups(_currentPage);
+        await renderGroups(_currentPage, searchString);
     }
 }
 
 async function clickNext (e){
     if (_currentPage < _maxNrpages-1) {
         _currentPage++;
-        await renderGroups(_currentPage);
+        await renderGroups(_currentPage, searchString);
     }
 }
 
-async function renderGroups(_currentPage) {
+async function RenderSearchGroups(e) {
+    // Prevent the form from submitting the traditional way
+    e.preventDefault();
+    _currentPage = 0;
+    searchString = document.querySelector("#search").value;
+    await renderGroups(_currentPage, searchString);
+}
+
+async function renderGroups(_currentPage, searchString) {
     
     //clear the list
     while (groupList.firstElementChild !== null) {
@@ -37,7 +48,7 @@ async function renderGroups(_currentPage) {
     }
 
     //fetch the data from api
-    let data = await GetMusicGroups(_currentPage);
+    let data = await GetMusicGroups(_currentPage, searchString);
     console.log(data);
     //populate list
     data.pageItems.forEach(item => {
@@ -85,4 +96,4 @@ function addRow(groupName, genere, id) {
 
 
 //init
-await renderGroups(_currentPage);
+await renderGroups(_currentPage, "");
